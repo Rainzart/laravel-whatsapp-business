@@ -29,5 +29,5 @@ return [
     | Versão da API Graph do Facebook para WhatsApp Business
     |
     */
-    'version' => env('WHATSAPP_API_VERSION', '22.0'),
+    'version' => env('WHATSAPP_API_VERSION', 'v22.0'),
 ];

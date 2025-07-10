@@ -3,6 +3,7 @@
 namespace Hadder\WhatsAppBusiness;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 use Hadder\WhatsAppBusiness\Exceptions\WhatsAppException;
 use Hadder\WhatsAppBusiness\Messages\Message;
 use Hadder\WhatsAppBusiness\Messages\TemplateMessage;
@@ -50,6 +51,12 @@ class WhatsAppClient
             ]);
 
             return json_decode($response->getBody()->getContents(), true);
+        } catch (ClientException $e) {
+            throw new WhatsAppException(
+                "Erro ao enviar mensagem: " . $e->getResponse()->getBody()->getContents(),
+                $e->getCode(),
+                $e
+            );
         } catch (\Exception $e) {
             throw new WhatsAppException(
                 "Erro ao enviar mensagem: " . $e->getMessage(),
