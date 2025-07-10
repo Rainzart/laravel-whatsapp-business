@@ -1,0 +1,48 @@
+{
+  "name": "hadder/laravel-whatsapp-business",
+  "description": "Integração com WhatsApp Business API da Meta para Laravel 10+",
+  "type": "library",
+  "license": "MIT",
+  "keywords": ["laravel", "whatsapp", "business", "api", "meta", "messenger"],
+  "authors": [
+    {
+      "name": "Fernando Friedrich",
+      "email": "fernando@hadder.com.br"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": "^8.0",
+    "guzzlehttp/guzzle": "^7.0",
+    "illuminate/support": "^10.0|^11.0|^12.0",
+    "illuminate/http": "^10.0|^11.0|^12.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0|^11.0",
+    "orchestra/testbench": "^8.0|^9.0|^10.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Hadder\\WhatsAppBusiness\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Hadder\\WhatsAppBusiness\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Hadder\\WhatsAppBusiness\\WhatsAppServiceProvider"
+      ],
+      "aliases": {
+        "WhatsApp": "Hadder\\WhatsAppBusiness\\Facades\\WhatsApp"
+      }
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
